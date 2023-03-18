@@ -1,5 +1,81 @@
 package tk.zwander.samsungfirmwaredownloader
 
+val requestBuilder = Request.Builder()
+    .url(firmwareUrl)
+    .header("User-Agent", USER_AGENT)
+    .header("Referer", refererUrl)
+    .header("Connection", "keep-alive")
+    .addHeader("Accept-Encoding", "gzip")
+    .addHeader("Range", "bytes=$start-$end")
+
+// Add progress listener
+val progressListener = object : ProgressListener {
+    override fun onProgress(bytesRead: Long, totalBytes: Long) {
+        val progress = ((bytesRead.toDouble() / totalBytes.toDouble()) * 100).toInt()
+        callback.onProgress(progress)
+    }
+}
+val client = OkHttpClient.Builder()
+    .addNetworkInterceptor(ProgressInterceptor(progressListener))
+    .build()
+
+val response = client.newCall(requestBuilder.build()).execute()
+class ProgressInterceptor(private val listener: ProgressListener) : Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val originalResponse = chain.proceed(chain.request())
+        return originalResponse.newBuilder()
+            .body(
+                ProgressResponseBody(
+                    originalResponse.body!!,
+                    listener
+                )
+            )
+            .build()
+    }
+}
+
+class ProgressResponseBody(
+    private val responseBody: ResponseBody,
+    private val listener: ProgressListener
+) : ResponseBody() {
+
+    private var bufferedSource: BufferedSource? = null
+
+    override fun contentType(): MediaType? {
+        return responseBody.contentType()
+    }
+
+    override fun contentLength(): Long {
+        return responseBody.contentLength()
+    }
+
+    override fun source(): BufferedSource {
+        if (bufferedSource == null) {
+            bufferedSource = Okio.buffer(source(responseBody.source()))
+        }
+        return bufferedSource!!
+    }
+
+    private fun source(source: Source): Source {
+        return object : ForwardingSource(source) {
+            var totalBytesRead = 0L
+
+            override fun read(sink: Buffer, byteCount: Long): Long {
+                val bytesRead = super.read(sink, byteCount)
+                totalBytesRead += if (bytesRead != -1L) bytesRead else 0L
+                listener.onProgress(totalBytesRead, responseBody.contentLength())
+                return bytesRead
+            }
+        }
+    }
+}
+
+interface ProgressListener {
+    fun onProgress(bytesRead: Long, totalBytes: Long)
+}
+
+package tk.zwander.samsungfirmwaredownloader
+
 import android.app.*
 import android.content.Context
 import android.content.Intent
