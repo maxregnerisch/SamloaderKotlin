@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_background"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="3D LABYRINTH"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        android:textColor="#FFD700"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="5" />
+
+    <TextView
+        android:id="@+id/subtitleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Navigate • Collect • Survive"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="italic" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:text="PLAY"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_play"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/highScoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High Score: 0"
+            android:textSize="20sp"
+            android:textColor="#FFD700"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎯 Collect Coins  💣 Avoid Bombs  👾 Escape Enemies  🧮 Solve Math"
+            android:textSize="14sp"
+            android:textColor="#CCCCCC"
+            android:gravity="center" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+

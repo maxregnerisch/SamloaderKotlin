@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">3D Labyrinth</string>
+    <string name="play_button">PLAY</string>
+    <string name="pause_button">Pause</string>
+    <string name="resume_button">Resume</string>
+    <string name="score_text">Score: %1$d</string>
+    <string name="lives_text">Lives: %1$d</string>
+    <string name="high_score_text">High Score: %1$d</string>
+    <string name="game_over_title">Game Over!</string>
+    <string name="final_score_text">Final Score: %1$d</string>
+    <string name="new_high_score">New High Score!</string>
+    <string name="play_again">Play Again</string>
+    <string name="main_menu">Main Menu</string>
+    <string name="math_question_title">Math Challenge</string>
+    <string name="math_correct">Correct! +20 points</string>
+    <string name="math_incorrect">Incorrect! Try again</string>
+    <string name="instructions_title">How to Play</string>
+    <string name="instructions_text">🎮 Tilt your device to move the ball\n🎯 Collect yellow coins for points\n💣 Avoid black bombs\n👾 Escape red enemies\n🧮 Touch math questions to solve them</string>
+</resources>
+
