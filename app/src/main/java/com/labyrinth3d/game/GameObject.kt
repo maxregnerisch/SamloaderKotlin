@@ -10,9 +10,9 @@ import kotlin.math.sin
 import kotlin.math.sqrt
 
 abstract class GameObject {
-    protected open var x = 0f
-    protected open var y = 0f
-    protected open var z = 0f
+    open var x = 0f
+    open var y = 0f
+    open var z = 0f
     var active = true
     protected var rotation = 0f
     

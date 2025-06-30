@@ -50,111 +50,170 @@ class GameRenderer(private val context: Context) : GLSurfaceView.Renderer {
     }
     
     private fun initializeGameObjects() {
-        labyrinth = Labyrinth()
-        ball = Ball()
-        
-        // Initialize coins, enemies, and bombs
-        gameObjects.clear()
-        
-        // Add coins
-        for (i in 0 until 10) {
-            val coin = Coin()
-            coin.setPosition(
-                (Math.random() * 18 - 9).toFloat(),
-                0.2f,
-                (Math.random() * 18 - 9).toFloat()
-            )
-            gameObjects.add(coin)
-        }
-        
-        // Add enemies
-        for (i in 0 until 3) {
-            val enemy = Enemy()
-            enemy.setPosition(
-                (Math.random() * 16 - 8).toFloat(),
-                0.3f,
-                (Math.random() * 16 - 8).toFloat()
-            )
-            gameObjects.add(enemy)
-        }
-        
-        // Add bombs
-        for (i in 0 until 5) {
-            val bomb = Bomb()
-            bomb.setPosition(
-                (Math.random() * 16 - 8).toFloat(),
-                0.2f,
-                (Math.random() * 16 - 8).toFloat()
-            )
-            gameObjects.add(bomb)
-        }
-        
-        // Add math questions
-        for (i in 0 until 3) {
-            val mathQuestion = MathQuestion()
-            mathQuestion.setPosition(
-                (Math.random() * 16 - 8).toFloat(),
-                0.4f,
-                (Math.random() * 16 - 8).toFloat()
-            )
-            gameObjects.add(mathQuestion)
+        try {
+            labyrinth = Labyrinth()
+            ball = Ball()
+            
+            // Initialize coins, enemies, and bombs
+            gameObjects.clear()
+            
+            // Add coins
+            for (i in 0 until 10) {
+                try {
+                    val coin = Coin()
+                    coin.setPosition(
+                        (Math.random() * 18 - 9).toFloat(),
+                        0.2f,
+                        (Math.random() * 18 - 9).toFloat()
+                    )
+                    gameObjects.add(coin)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+            
+            // Add enemies
+            for (i in 0 until 3) {
+                try {
+                    val enemy = Enemy()
+                    enemy.setPosition(
+                        (Math.random() * 16 - 8).toFloat(),
+                        0.3f,
+                        (Math.random() * 16 - 8).toFloat()
+                    )
+                    gameObjects.add(enemy)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+            
+            // Add bombs
+            for (i in 0 until 5) {
+                try {
+                    val bomb = Bomb()
+                    bomb.setPosition(
+                        (Math.random() * 16 - 8).toFloat(),
+                        0.2f,
+                        (Math.random() * 16 - 8).toFloat()
+                    )
+                    gameObjects.add(bomb)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+            
+            // Add math questions
+            for (i in 0 until 3) {
+                try {
+                    val mathQuestion = MathQuestion()
+                    mathQuestion.setPosition(
+                        (Math.random() * 16 - 8).toFloat(),
+                        0.4f,
+                        (Math.random() * 16 - 8).toFloat()
+                    )
+                    gameObjects.add(mathQuestion)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
     
     override fun onDrawFrame(unused: GL10) {
-        // Redraw background color
-        GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT or GLES20.GL_DEPTH_BUFFER_BIT)
-        
-        // Update game logic
-        gameEngine?.update()
-        
-        // Set up camera
-        setupCamera()
-        
-        // Draw labyrinth
-        labyrinth?.draw(mvpMatrix)
-        
-        // Draw ball
-        ball?.let { ballObj ->
-            gameEngine?.let { engine ->
-                ballObj.setPosition(engine.getBallX(), 0.5f, engine.getBallZ())
+        try {
+            // Redraw background color
+            GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT or GLES20.GL_DEPTH_BUFFER_BIT)
+            
+            // Update game logic
+            try {
+                gameEngine?.update()
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-            ballObj.draw(mvpMatrix)
-        }
-        
-        // Draw game objects
-        for (gameObject in gameObjects) {
-            if (gameObject.isActive()) {
-                gameObject.update()
-                gameObject.draw(mvpMatrix)
+            
+            // Set up camera
+            try {
+                setupCamera()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return
             }
+            
+            // Draw labyrinth
+            try {
+                labyrinth?.draw(mvpMatrix)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            
+            // Draw ball
+            try {
+                ball?.let { ballObj ->
+                    gameEngine?.let { engine ->
+                        ballObj.setPosition(engine.getBallX(), 0.5f, engine.getBallZ())
+                    }
+                    ballObj.draw(mvpMatrix)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            
+            // Draw game objects
+            try {
+                for (gameObject in gameObjects) {
+                    try {
+                        gameObject.update()
+                        gameObject.draw(mvpMatrix)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            
+            // Draw player avatar
+            try {
+                playerAvatar?.let { avatar ->
+                    avatar.draw(mvpMatrix)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            
+            // Update and draw particle system
+            try {
+                particleSystem?.let { particles ->
+                    particles.update(1f / 60f) // Approximate frame time
+                    particles.render(mvpMatrix)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            
+            // Check collisions
+            try {
+                checkCollisions()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-        
-        // Draw player avatar
-        playerAvatar?.let { avatar ->
-            avatar.draw(mvpMatrix)
-        }
-        
-        // Update and draw particle system
-        particleSystem?.let { particles ->
-            particles.update(1f / 60f) // Approximate frame time
-            particles.render(mvpMatrix)
-        }
-        
-        // Check collisions
-        checkCollisions()
     }
     
     private fun setupCamera() {
         // Set the camera position (View matrix)
-        val ballX = gameEngine?.getBallX() ?: 0f
-        val ballZ = gameEngine?.getBallZ() ?: 0f
+        val playerX = playerAvatar?.x ?: 0f
+        val playerZ = playerAvatar?.z ?: 0f
         
         Matrix.setLookAtM(
             viewMatrix, 0,
-            ballX, 8f, ballZ + 5f,  // Camera position (following ball)
-            ballX, 0f, ballZ,       // Look at ball
-            0f, 1.0f, 0.0f          // Up vector
+            playerX, 8f, playerZ + 5f,  // Camera position (following player)
+            playerX, 0f, playerZ,       // Look at player
+            0f, 1.0f, 0.0f              // Up vector
         )
         
         // Calculate the projection and view transformation
@@ -162,33 +221,36 @@ class GameRenderer(private val context: Context) : GLSurfaceView.Renderer {
     }
     
     private fun checkCollisions() {
-        val ballX = gameEngine?.getBallX() ?: 0f
-        val ballZ = gameEngine?.getBallZ() ?: 0f
+        val playerX = playerAvatar?.x ?: 0f
+        val playerZ = playerAvatar?.z ?: 0f
+        val playerRadius = 0.3f
         
         for (gameObject in gameObjects) {
-            if (gameObject.isActive() && gameObject.checkCollision(ballX, ballZ, 0.5f)) {
-                when (gameObject) {
-                    is Coin -> {
-                        gameEngine?.addScore(10)
-                        gameObject.active = false
-                        gameEngine?.onVibrate(50)
-                    }
-                    is Enemy -> {
-                        gameEngine?.loseLife()
-                        gameObject.active = false
-                        gameEngine?.onVibrate(200)
-                    }
-                    is Bomb -> {
-                        gameEngine?.loseLife()
-                        gameObject.active = false
-                        gameEngine?.onVibrate(300)
-                    }
-                    is MathQuestion -> {
-                        // Handle math question interaction
-                        gameEngine?.showMathQuestion(gameObject as MathQuestion)
-                        gameObject.active = false
+            try {
+                if (gameObject.isActive() && gameObject.checkCollision(playerX, playerZ, playerRadius)) {
+                    when (gameObject) {
+                        is Coin -> {
+                            gameEngine?.addScore(10)
+                            gameObject.active = false
+                            gameEngine?.onCoinCollected()
+                        }
+                        is Enemy -> {
+                            gameEngine?.onPlayerDamaged(25f)
+                            gameObject.active = false
+                        }
+                        is Bomb -> {
+                            gameEngine?.onPlayerDamaged(50f)
+                            gameEngine?.onExplosion(gameObject.x, gameObject.y, gameObject.z)
+                            gameObject.active = false
+                        }
+                        is MathQuestion -> {
+                            gameEngine?.showMathQuestion(gameObject)
+                            gameObject.active = false
+                        }
                     }
                 }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }
