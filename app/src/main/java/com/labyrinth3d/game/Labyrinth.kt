@@ -139,23 +139,32 @@ class Labyrinth {
         val halfLength = length / 2
         val halfThickness = thickness / 2
         
-        // Wall vertices (box)
+        // Wall vertices as triangles (box)
         val wallVertices = floatArrayOf(
-            // Front face
+            // Front face (2 triangles)
             -halfLength, 0f, halfThickness,
             halfLength, 0f, halfThickness,
             halfLength, height, halfThickness,
+            
+            -halfLength, 0f, halfThickness,
+            halfLength, height, halfThickness,
             -halfLength, height, halfThickness,
             
-            // Back face
-            -halfLength, 0f, -halfThickness,
+            // Back face (2 triangles)
             halfLength, 0f, -halfThickness,
+            -halfLength, 0f, -halfThickness,
             halfLength, height, -halfThickness,
+            
+            halfLength, height, -halfThickness,
+            -halfLength, 0f, -halfThickness,
             -halfLength, height, -halfThickness,
             
-            // Top face
+            // Top face (2 triangles)
             -halfLength, height, -halfThickness,
             halfLength, height, -halfThickness,
+            halfLength, height, halfThickness,
+            
+            -halfLength, height, -halfThickness,
             halfLength, height, halfThickness,
             -halfLength, height, halfThickness
         )
@@ -180,7 +189,7 @@ class Labyrinth {
         
         // Wall colors (stone-like)
         val wallColor = listOf(0.6f, 0.6f, 0.7f, 1f)
-        repeat(12) { colors.addAll(wallColor) }
+        repeat(18) { colors.addAll(wallColor) } // 18 vertices for 6 triangles
     }
     
     private fun initializeShaders() {
@@ -227,7 +236,7 @@ class Labyrinth {
         GLES20.glUniformMatrix4fv(mvpMatrixHandle, 1, false, this.mvpMatrix, 0)
         
         // Draw the labyrinth
-        GLES20.glDrawArrays(GLES20.GL_QUADS, 0, vertexBuffer!!.capacity() / 3)
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, vertexBuffer!!.capacity() / 3)
         
         // Disable vertex arrays
         GLES20.glDisableVertexAttribArray(positionHandle)
@@ -243,4 +252,3 @@ class Labyrinth {
         return floatBuffer
     }
 }
-

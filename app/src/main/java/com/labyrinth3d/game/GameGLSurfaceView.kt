@@ -29,6 +29,14 @@ class GameGLSurfaceView @JvmOverloads constructor(
         renderer.setGameEngine(engine)
     }
     
+    fun setPlayerAvatar(avatar: PlayerAvatar) {
+        renderer.setPlayerAvatar(avatar)
+    }
+    
+    fun setParticleSystem(system: ParticleSystem) {
+        renderer.setParticleSystem(system)
+    }
+    
     override fun onTouchEvent(event: MotionEvent): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
@@ -40,4 +48,3 @@ class GameGLSurfaceView @JvmOverloads constructor(
         return super.onTouchEvent(event)
     }
 }
-
