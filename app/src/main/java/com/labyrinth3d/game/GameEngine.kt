@@ -267,7 +267,6 @@ class GameEngine(private val context: Context) {
         particleSystem?.emit(ParticleSystem.ParticleType.EXPLOSION, x, y, z, 30)
     }
     
-    fun getCoins() = coins
     fun getGameTime() = gameTime
     
     fun addCoins(amount: Int) {

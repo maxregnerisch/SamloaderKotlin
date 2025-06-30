@@ -164,28 +164,8 @@ class GameRenderer(private val context: Context) : GLSurfaceView.Renderer {
             try {
                 for (gameObject in gameObjects) {
                     try {
-                        when (gameObject) {
-                            is Coin -> {
-                                gameObject.update(1f / 60f)
-                                gameObject.draw(mvpMatrix)
-                            }
-                            is Enemy -> {
-                                playerAvatar?.let { avatar ->
-                                    gameObject.update(1f / 60f, avatar.x, avatar.y, avatar.z)
-                                }
-                                gameObject.draw(mvpMatrix)
-                            }
-                            is Bomb -> {
-                                playerAvatar?.let { avatar ->
-                                    gameObject.update(1f / 60f, avatar.x, avatar.y, avatar.z)
-                                }
-                                gameObject.draw(mvpMatrix)
-                            }
-                            is MathQuestion -> {
-                                gameObject.update(1f / 60f)
-                                gameObject.draw(mvpMatrix)
-                            }
-                        }
+                        gameObject.update()
+                        gameObject.draw(mvpMatrix)
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
@@ -242,39 +222,30 @@ class GameRenderer(private val context: Context) : GLSurfaceView.Renderer {
     
     private fun checkCollisions() {
         val playerX = playerAvatar?.x ?: 0f
-        val playerY = playerAvatar?.y ?: 0f
         val playerZ = playerAvatar?.z ?: 0f
         val playerRadius = 0.3f
         
         for (gameObject in gameObjects) {
             try {
-                when (gameObject) {
-                    is Coin -> {
-                        if (!gameObject.isCollected() && gameObject.checkCollision(playerX, playerY, playerZ, playerRadius)) {
-                            gameObject.collect()
+                if (gameObject.isActive() && gameObject.checkCollision(playerX, playerZ, playerRadius)) {
+                    when (gameObject) {
+                        is Coin -> {
                             gameEngine?.addScore(10)
+                            gameObject.active = false
                             gameEngine?.onCoinCollected()
                         }
-                    }
-                    is Enemy -> {
-                        if (gameObject.isAlive() && gameObject.checkCollision(playerX, playerY, playerZ, playerRadius)) {
-                            if (gameObject.canAttack()) {
-                                gameEngine?.onPlayerDamaged(gameObject.getAttackDamage())
-                            }
+                        is Enemy -> {
+                            gameEngine?.onPlayerDamaged(25f)
+                            gameObject.active = false
                         }
-                    }
-                    is Bomb -> {
-                        if (!gameObject.isExploded() && gameObject.checkCollision(playerX, playerY, playerZ, playerRadius)) {
-                            val damage = gameObject.checkExplosionDamage(playerX, playerY, playerZ)
-                            if (damage > 0) {
-                                gameEngine?.onPlayerDamaged(damage)
-                                gameEngine?.onExplosion(gameObject.x, gameObject.y, gameObject.z)
-                            }
+                        is Bomb -> {
+                            gameEngine?.onPlayerDamaged(50f)
+                            gameEngine?.onExplosion(gameObject.x, gameObject.y, gameObject.z)
+                            gameObject.active = false
                         }
-                    }
-                    is MathQuestion -> {
-                        if (!gameObject.isAnswered() && gameObject.checkCollision(playerX, playerY, playerZ, playerRadius)) {
+                        is MathQuestion -> {
                             gameEngine?.showMathQuestion(gameObject)
+                            gameObject.active = false
                         }
                     }
                 }
