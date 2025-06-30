@@ -18,9 +18,19 @@ class GameRenderer(private val context: Context) : GLSurfaceView.Renderer {
     private var labyrinth: Labyrinth? = null
     private var ball: Ball? = null
     private var gameObjects: MutableList<GameObject> = mutableListOf()
+    private var playerAvatar: PlayerAvatar? = null
+    private var particleSystem: ParticleSystem? = null
     
     fun setGameEngine(engine: GameEngine) {
         this.gameEngine = engine
+    }
+    
+    fun setPlayerAvatar(avatar: PlayerAvatar) {
+        this.playerAvatar = avatar
+    }
+    
+    fun setParticleSystem(system: ParticleSystem) {
+        this.particleSystem = system
     }
     
     override fun onSurfaceCreated(unused: GL10, config: EGLConfig) {
@@ -120,6 +130,17 @@ class GameRenderer(private val context: Context) : GLSurfaceView.Renderer {
             }
         }
         
+        // Draw player avatar
+        playerAvatar?.let { avatar ->
+            avatar.draw(mvpMatrix)
+        }
+        
+        // Update and draw particle system
+        particleSystem?.let { particles ->
+            particles.update(1f / 60f) // Approximate frame time
+            particles.render(mvpMatrix)
+        }
+        
         // Check collisions
         checkCollisions()
     }
@@ -149,23 +170,23 @@ class GameRenderer(private val context: Context) : GLSurfaceView.Renderer {
                 when (gameObject) {
                     is Coin -> {
                         gameEngine?.addScore(10)
-                        gameObject.setActive(false)
+                        gameObject.active = false
                         gameEngine?.onVibrate(50)
                     }
                     is Enemy -> {
                         gameEngine?.loseLife()
-                        gameObject.setActive(false)
+                        gameObject.active = false
                         gameEngine?.onVibrate(200)
                     }
                     is Bomb -> {
                         gameEngine?.loseLife()
-                        gameObject.setActive(false)
+                        gameObject.active = false
                         gameEngine?.onVibrate(300)
                     }
                     is MathQuestion -> {
                         // Handle math question interaction
                         gameEngine?.showMathQuestion(gameObject as MathQuestion)
-                        gameObject.setActive(false)
+                        gameObject.active = false
                     }
                 }
             }
@@ -182,4 +203,3 @@ class GameRenderer(private val context: Context) : GLSurfaceView.Renderer {
         Matrix.frustumM(projectionMatrix, 0, -ratio, ratio, -1f, 1f, 3f, 20f)
     }
 }
-

@@ -12,6 +12,10 @@ class GameEngine(private val context: Context) {
         fun onLivesChanged(lives: Int)
         fun onGameOver(finalScore: Int)
         fun onVibrate(duration: Long)
+        fun onCoinCollected()
+        fun onPlayerDamaged(damage: Float)
+        fun onPlayerHealed(amount: Float)
+        fun onExplosion(x: Float, y: Float, z: Float)
     }
     
     private var callback: GameCallback? = null
@@ -39,6 +43,13 @@ class GameEngine(private val context: Context) {
     // Labyrinth boundaries
     private val labyrinthSize = 10f
     private val wallThickness = 0.5f
+    
+    // Enhanced game components
+    private var playerAvatar: PlayerAvatar? = null
+    private var particleSystem: ParticleSystem? = null
+    private var soundManager: SoundManager? = null
+    private var coins = 0
+    private var gameTime = 0f
     
     fun setGameCallback(callback: GameCallback) {
         this.callback = callback
@@ -198,6 +209,58 @@ class GameEngine(private val context: Context) {
         callback?.onVibrate(duration)
     }
     
+    // Enhanced game methods
+    fun setPlayerAvatar(avatar: PlayerAvatar) {
+        playerAvatar = avatar
+    }
+    
+    fun setParticleSystem(system: ParticleSystem) {
+        particleSystem = system
+    }
+    
+    fun setSoundManager(manager: SoundManager) {
+        soundManager = manager
+    }
+    
+    fun updatePlayerPosition(x: Float, y: Float, z: Float) {
+        ballX = x
+        ballZ = z
+        // Update ball position for collision detection
+    }
+    
+    fun performAction() {
+        // Implement special action (attack, interact, etc.)
+        playerAvatar?.let { avatar ->
+            // Add action logic here
+            callback?.onVibrate(100)
+        }
+    }
+    
+    fun useSpecialAbility() {
+        // Implement special ability
+        playerAvatar?.let { avatar ->
+            if (avatar.getLevel() >= 2) {
+                // Heal player
+                callback?.onPlayerHealed(20f)
+                callback?.onVibrate(150)
+            }
+        }
+    }
+    
+    fun addExplosionEffect(x: Float, y: Float, z: Float) {
+        particleSystem?.emit(ParticleSystem.ParticleType.EXPLOSION, x, y, z, 30)
+    }
+    
+    fun getCoins() = coins
+    fun getGameTime() = gameTime
+    
+    fun addCoins(amount: Int) {
+        coins += amount
+        callback?.onCoinCollected()
+    }
+    
+    fun isPaused() = isPaused
+    
     // Getters
     fun getBallX() = ballX
     fun getBallZ() = ballZ
@@ -205,4 +268,3 @@ class GameEngine(private val context: Context) {
     fun getLives() = lives
     fun isGameOver() = gameOver
 }
-
