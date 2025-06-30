@@ -247,6 +247,22 @@ class GameEngine(private val context: Context) {
         }
     }
     
+    fun onCoinCollected() {
+        coins++
+        callback?.onCoinCollected()
+        callback?.onVibrate(50)
+    }
+    
+    fun onPlayerDamaged(damage: Float) {
+        callback?.onPlayerDamaged(damage)
+        callback?.onVibrate(200)
+    }
+    
+    fun onExplosion(x: Float, y: Float, z: Float) {
+        callback?.onExplosion(x, y, z)
+        callback?.onVibrate(300)
+    }
+    
     fun addExplosionEffect(x: Float, y: Float, z: Float) {
         particleSystem?.emit(ParticleSystem.ParticleType.EXPLOSION, x, y, z, 30)
     }
@@ -266,5 +282,6 @@ class GameEngine(private val context: Context) {
     fun getBallZ() = ballZ
     fun getScore() = score
     fun getLives() = lives
+    fun getCoins() = coins
     fun isGameOver() = gameOver
 }

@@ -45,16 +45,22 @@ class GameActivity : AppCompatActivity(), SensorEventListener, GameControls.Cont
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        setupFullscreen()
-        
-        // Create layout programmatically since we're adding multiple views
-        val frameLayout = FrameLayout(this)
-        setContentView(frameLayout)
-        
-        initializeViews(frameLayout)
-        initializeSensors()
-        initializeGame()
-        initializeSound()
+        try {
+            setupFullscreen()
+            
+            // Create layout programmatically since we're adding multiple views
+            val frameLayout = FrameLayout(this)
+            setContentView(frameLayout)
+            
+            initializeViews(frameLayout)
+            initializeSensors()
+            initializeGame()
+            initializeSound()
+        } catch (e: Exception) {
+            // Handle initialization errors gracefully
+            e.printStackTrace()
+            finish()
+        }
     }
     
     private fun setupFullscreen() {
@@ -66,18 +72,23 @@ class GameActivity : AppCompatActivity(), SensorEventListener, GameControls.Cont
     }
     
     private fun initializeViews(container: FrameLayout) {
-        // Create OpenGL surface view
-        glSurfaceView = GameGLSurfaceView(this)
-        container.addView(glSurfaceView)
-        
-        // Create game controls overlay
-        gameControls = GameControls(this)
-        gameControls.setControlListener(this)
-        container.addView(gameControls)
-        
-        // Create HUD overlay
-        gameHUD = GameHUD(this)
-        container.addView(gameHUD)
+        try {
+            // Create OpenGL surface view
+            glSurfaceView = GameGLSurfaceView(this)
+            container.addView(glSurfaceView)
+            
+            // Create game controls overlay
+            gameControls = GameControls(this)
+            gameControls.setControlListener(this)
+            container.addView(gameControls)
+            
+            // Create HUD overlay
+            gameHUD = GameHUD(this)
+            container.addView(gameHUD)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            throw RuntimeException("Failed to initialize views", e)
+        }
     }
     
     private fun initializeSensors() {
@@ -89,19 +100,20 @@ class GameActivity : AppCompatActivity(), SensorEventListener, GameControls.Cont
     }
     
     private fun initializeGame() {
-        // Create player avatar
-        playerAvatar = PlayerAvatar()
-        
-        // Create particle system
-        particleSystem = ParticleSystem()
-        
-        // Create game engine
-        gameEngine = GameEngine(this)
-        gameEngine.setPlayerAvatar(playerAvatar)
-        gameEngine.setParticleSystem(particleSystem)
-        glSurfaceView.setGameEngine(gameEngine)
-        glSurfaceView.setPlayerAvatar(playerAvatar)
-        glSurfaceView.setParticleSystem(particleSystem)
+        try {
+            // Create player avatar
+            playerAvatar = PlayerAvatar()
+            
+            // Create particle system
+            particleSystem = ParticleSystem()
+            
+            // Create game engine
+            gameEngine = GameEngine(this)
+            gameEngine.setPlayerAvatar(playerAvatar)
+            gameEngine.setParticleSystem(particleSystem)
+            glSurfaceView.setGameEngine(gameEngine)
+            glSurfaceView.setPlayerAvatar(playerAvatar)
+            glSurfaceView.setParticleSystem(particleSystem)
         
         gameEngine.setGameCallback(object : GameEngine.GameCallback {
             override fun onScoreChanged(score: Int) {
@@ -152,14 +164,23 @@ class GameActivity : AppCompatActivity(), SensorEventListener, GameControls.Cont
                 }
             }
         })
+        } catch (e: Exception) {
+            e.printStackTrace()
+            throw RuntimeException("Failed to initialize game", e)
+        }
     }
     
     private fun initializeSound() {
-        soundManager = SoundManager(this)
-        gameEngine.setSoundManager(soundManager)
-        
-        // Start background music
-        soundManager.playBackgroundMusic("main_theme")
+        try {
+            soundManager = SoundManager(this)
+            gameEngine.setSoundManager(soundManager)
+            
+            // Start background music
+            soundManager.playBackgroundMusic("main_theme")
+        } catch (e: Exception) {
+            e.printStackTrace()
+            // Sound is not critical, continue without it
+        }
     }
     
     private fun updateHUD() {
