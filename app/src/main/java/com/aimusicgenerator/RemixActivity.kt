@@ -297,16 +297,16 @@ class RemixActivity : AppCompatActivity() {
                 prepareAsync()
                 setOnPreparedListener {
                     start()
-                    isPlaying = true
+                    this@RemixActivity.isPlaying = true
                     binding.btnPlayOriginal.text = "Pause"
                 }
                 setOnCompletionListener {
-                    isPlaying = false
+                    this@RemixActivity.isPlaying = false
                     binding.btnPlayOriginal.text = "Play"
                 }
                 setOnErrorListener { _, _, _ ->
                     Toast.makeText(this@RemixActivity, "Error playing audio", Toast.LENGTH_SHORT).show()
-                    isPlaying = false
+                    this@RemixActivity.isPlaying = false
                     binding.btnPlayOriginal.text = "Play"
                     true
                 }
@@ -485,4 +485,3 @@ class RemixActivity : AppCompatActivity() {
         stopPlayback()
     }
 }
-
