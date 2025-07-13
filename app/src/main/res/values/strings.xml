@@ -1,20 +1,69 @@
 <resources>
-    <string name="app_name">3D Labyrinth</string>
-    <string name="play_button">PLAY</string>
-    <string name="pause_button">Pause</string>
-    <string name="resume_button">Resume</string>
-    <string name="score_text">Score: %1$d</string>
-    <string name="lives_text">Lives: %1$d</string>
-    <string name="high_score_text">High Score: %1$d</string>
-    <string name="game_over_title">Game Over!</string>
-    <string name="final_score_text">Final Score: %1$d</string>
-    <string name="new_high_score">New High Score!</string>
-    <string name="play_again">Play Again</string>
-    <string name="main_menu">Main Menu</string>
-    <string name="math_question_title">Math Challenge</string>
-    <string name="math_correct">Correct! +20 points</string>
-    <string name="math_incorrect">Incorrect! Try again</string>
-    <string name="instructions_title">How to Play</string>
-    <string name="instructions_text">🎮 Tilt your device to move the ball\n🎯 Collect yellow coins for points\n💣 Avoid black bombs\n👾 Escape red enemies\n🧮 Touch math questions to solve them</string>
+    <string name="app_name">AI Music Generator</string>
+    
+    <!-- Main Activity -->
+    <string name="main_title">AI Music Generator</string>
+    <string name="main_subtitle">Create unique music with artificial intelligence</string>
+    <string name="btn_generate_music">Generate Music</string>
+    <string name="btn_my_library">My Library</string>
+    <string name="btn_settings">Settings</string>
+    
+    <!-- Generator Activity -->
+    <string name="generator_title">Music Generator</string>
+    <string name="select_genre">Select Genre</string>
+    <string name="select_instruments">Select Instruments</string>
+    <string name="tempo">Tempo</string>
+    <string name="duration">Duration</string>
+    <string name="generate">Generate Music</string>
+    <string name="generating">Generating...</string>
+    <string name="generated_music">Generated Music</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="save">Save</string>
+    
+    <!-- Library Activity -->
+    <string name="library_title">My Library</string>
+    <string name="empty_library">No music generated yet</string>
+    <string name="empty_library_subtitle">Start creating music to see it here</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+    
+    <!-- Common -->
+    <string name="back">Back</string>
+    <string name="loading">Loading...</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    
+    <!-- Genres -->
+    <string name="genre_electronic">Electronic</string>
+    <string name="genre_classical">Classical</string>
+    <string name="genre_jazz">Jazz</string>
+    <string name="genre_rock">Rock</string>
+    <string name="genre_ambient">Ambient</string>
+    <string name="genre_pop">Pop</string>
+    <string name="genre_hiphop">Hip Hop</string>
+    <string name="genre_folk">Folk</string>
+    
+    <!-- Instruments -->
+    <string name="instrument_piano">Piano</string>
+    <string name="instrument_guitar">Guitar</string>
+    <string name="instrument_violin">Violin</string>
+    <string name="instrument_drums">Drums</string>
+    <string name="instrument_bass">Bass</string>
+    <string name="instrument_flute">Flute</string>
+    <string name="instrument_saxophone">Saxophone</string>
+    <string name="instrument_synthesizer">Synthesizer</string>
+    <string name="instrument_trumpet">Trumpet</string>
+    <string name="instrument_cello">Cello</string>
+    
+    <!-- Messages -->
+    <string name="music_saved">Music saved to library!</string>
+    <string name="music_deleted">Music deleted</string>
+    <string name="generation_failed">Music generation failed</string>
+    <string name="playback_error">Error playing music</string>
+    <string name="permission_required">Permissions required to continue</string>
+    <string name="share_coming_soon">Share functionality coming soon!</string>
 </resources>
 

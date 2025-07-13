@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="gold">#FFD700</color>
-    <color name="dark_blue">#FF1A1A2E</color>
-    <color name="purple">#FF16213E</color>
-    <color name="light_purple">#FF0F3460</color>
-    <color name="red">#FFE94560</color>
-    <color name="green">#FF4CAF50</color>
-    <color name="orange">#FFFF9800</color>
-    <color name="cyan">#FF00BCD4</color>
-    <color name="transparent_black">#80000000</color>
-    <color name="transparent_white">#80FFFFFF</color>
+    <!-- Primary Colors -->
+    <color name="primary">#6200EE</color>
+    <color name="primary_variant">#3700B3</color>
+    <color name="secondary">#03DAC6</color>
+    <color name="secondary_variant">#018786</color>
+    <color name="accent">#FF6B35</color>
+    
+    <!-- Background Colors -->
+    <color name="background_primary">#FFFFFF</color>
+    <color name="background_secondary">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    
+    <!-- State Colors -->
+    <color name="error">#B00020</color>
+    <color name="success">#4CAF50</color>
+    <color name="warning">#FF9800</color>
+    
+    <!-- Selection Colors -->
+    <color name="genre_selected">#6200EE</color>
+    <color name="genre_unselected">#F5F5F5</color>
+    <color name="instrument_selected">#03DAC6</color>
+    <color name="instrument_unselected">#F5F5F5</color>
+    
+    <!-- Standard Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
 </resources>
 
