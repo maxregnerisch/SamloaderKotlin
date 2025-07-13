@@ -4,8 +4,7 @@ import android.content.Context
 import com.aimusicgenerator.model.AudioFormat
 import com.aimusicgenerator.model.MusicGenerationRequest
 import com.aimusicgenerator.model.RemixRequest
-import com.arthenica.ffmpegkit.FFmpegKit
-import com.arthenica.ffmpegkit.ReturnCode
+// Note: FFmpeg functionality removed for now - can be added later with proper dependencies
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.apache.commons.math3.complex.Complex
@@ -182,7 +181,7 @@ class AdvancedAudioEngine(private val context: Context) {
             // String section simulation
             val strings = generateStringSection(notes[noteIndex], time) * envelope * 0.4
             
-            val sample = (fundamental + harmony + strings) * 0.6f
+            val sample = ((fundamental + harmony + strings) * 0.6).toFloat()
             
             audioData[i * channels] = sample
             audioData[i * channels + 1] = sample
@@ -224,7 +223,7 @@ class AdvancedAudioEngine(private val context: Context) {
             // Saxophone lead
             val sax = generateSaxophone(jazzChords[chordIndex][2] * 1.5, time) * 0.25
             
-            val sample = (bass + chord + drums + sax) * 0.7f
+            val sample = ((bass + chord + drums + sax) * 0.7).toFloat()
             
             audioData[i * channels] = sample
             audioData[i * channels + 1] = sample
@@ -276,18 +275,9 @@ class AdvancedAudioEngine(private val context: Context) {
     }
     
     private fun loadMp3File(filePath: String): FloatArray {
-        // Convert MP3 to WAV using FFmpeg, then load
-        val tempWavPath = "${filePath}_temp.wav"
-        val command = "-i \"$filePath\" -ar $sampleRate -ac $channels -f wav \"$tempWavPath\""
-        
-        val session = FFmpegKit.execute(command)
-        return if (ReturnCode.isSuccess(session.returnCode)) {
-            val data = loadWavFile(tempWavPath)
-            File(tempWavPath).delete()
-            data
-        } else {
-            throw RuntimeException("Failed to convert MP3 file")
-        }
+        // MP3 loading not implemented yet - would require external library
+        // For now, return empty array or throw exception
+        throw UnsupportedOperationException("MP3 loading not yet implemented. Please use WAV files.")
     }
     
     private fun loadWavFile(filePath: String): FloatArray {
@@ -324,7 +314,7 @@ class AdvancedAudioEngine(private val context: Context) {
         // Generate audio from MIDI data (simplified)
         for (i in 0 until samples / channels) {
             val time = i.toDouble() / sampleRate
-            val sample = generateMidiToAudio(time) * 0.5f
+            val sample = (generateMidiToAudio(time) * 0.5).toFloat()
             
             audioData[i * channels] = sample
             audioData[i * channels + 1] = sample
@@ -334,12 +324,8 @@ class AdvancedAudioEngine(private val context: Context) {
     }
     
     private fun convertToHighQualityMp3(inputWavPath: String, outputMp3Path: String, bitrate: Int) {
-        val command = "-i \"$inputWavPath\" -codec:a libmp3lame -b:a ${bitrate}k -ar $sampleRate -ac $channels \"$outputMp3Path\""
-        val session = FFmpegKit.execute(command)
-        
-        if (!ReturnCode.isSuccess(session.returnCode)) {
-            throw RuntimeException("Failed to convert to MP3: ${session.failStackTrace}")
-        }
+        // MP3 conversion not implemented yet - would require external library
+        throw UnsupportedOperationException("MP3 conversion not yet implemented. Use WAV format instead.")
     }
     
     private fun writeHighQualityWavFile(audioData: FloatArray, outputPath: String) {
@@ -374,6 +360,127 @@ class AdvancedAudioEngine(private val context: Context) {
         }
         
         fos.close()
+    }
+    
+    private fun generateAdvancedRock(audioData: FloatArray, tempo: Int, samples: Int) {
+        val beatsPerSecond = tempo / 60.0
+        
+        for (i in audioData.indices) {
+            val time = i.toDouble() / sampleRate
+            val beatPosition = (time * beatsPerSecond) % 1.0
+            
+            // Rock guitar (distorted)
+            val guitar = generateDistortedGuitar(220.0, time) * 0.4
+            
+            // Rock drums (punchy)
+            val drums = generateRockDrums(beatPosition, time) * 0.3
+            
+            // Bass guitar
+            val bass = generateAdvancedBass(110.0, time) * 0.3
+            
+            audioData[i] = (guitar + drums + bass).toFloat()
+        }
+    }
+    
+    private fun generateAdvancedAmbient(audioData: FloatArray, tempo: Int, samples: Int) {
+        for (i in audioData.indices) {
+            val time = i.toDouble() / sampleRate
+            
+            // Atmospheric pads
+            val pads = generateAtmosphericPads(time) * 0.5
+            
+            // Subtle arpeggios
+            val arp = sin(2 * PI * 220 * time + sin(time * 0.5) * 2) * 0.2
+            
+            // Reverb-like effect
+            val reverb = sin(2 * PI * 110 * time) * 0.1 * sin(time * 0.1)
+            
+            audioData[i] = (pads + arp + reverb).toFloat()
+        }
+    }
+    
+    private fun generateAdvancedPop(audioData: FloatArray, tempo: Int, samples: Int) {
+        val beatsPerSecond = tempo / 60.0
+        
+        for (i in audioData.indices) {
+            val time = i.toDouble() / sampleRate
+            val beatPosition = (time * beatsPerSecond) % 1.0
+            
+            // Pop synth lead
+            val synth = generatePopSynth(440.0, time) * 0.4
+            
+            // Pop drums
+            val drums = generateAdvancedDrums(beatPosition, time) * 0.3
+            
+            // Bass line
+            val bass = sin(2 * PI * 220 * time) * 0.3
+            
+            audioData[i] = (synth + drums + bass).toFloat()
+        }
+    }
+    
+    private fun generateAdvancedHipHop(audioData: FloatArray, tempo: Int, samples: Int) {
+        val beatsPerSecond = tempo / 60.0
+        
+        for (i in audioData.indices) {
+            val time = i.toDouble() / sampleRate
+            val beatPosition = (time * beatsPerSecond) % 1.0
+            
+            // 808 bass
+            val bass808 = generate808Bass(55.0, time, beatPosition) * 0.5
+            
+            // Hip-hop drums
+            val drums = generateAdvancedDrums(beatPosition, time) * 0.4
+            
+            // Synth stabs
+            val stabs = if (beatPosition < 0.1) sin(2 * PI * 330 * time) * 0.3 else 0.0
+            
+            audioData[i] = (bass808 + drums + stabs).toFloat()
+        }
+    }
+    
+    private fun generateAdvancedFolk(audioData: FloatArray, tempo: Int, samples: Int) {
+        for (i in audioData.indices) {
+            val time = i.toDouble() / sampleRate
+            
+            // Acoustic guitar (fingerpicked)
+            val guitar = sin(2 * PI * 220 * time) * exp(-time % 2.0) * 0.4
+            
+            // Simple percussion
+            val percussion = if ((time * 2) % 1.0 < 0.1) (Random.nextDouble() - 0.5) * 0.2 else 0.0
+            
+            // Harmonica-like melody
+            val harmonica = sin(2 * PI * 440 * time + sin(time * 0.5)) * 0.2
+            
+            audioData[i] = (guitar + percussion + harmonica).toFloat()
+        }
+    }
+    
+    // Helper functions for rock generation
+    private fun generateDistortedGuitar(frequency: Double, time: Double): Float {
+        val clean = sin(2 * PI * frequency * time)
+        val distorted = tanh(clean * 3.0) // Soft clipping for distortion
+        return distorted.toFloat()
+    }
+    
+    private fun generateRockDrums(beatPosition: Double, time: Double): Float {
+        val kick = if (beatPosition < 0.1) (Random.nextDouble() - 0.5) * 2.0 else 0.0
+        val snare = if (beatPosition > 0.4 && beatPosition < 0.6) (Random.nextDouble() - 0.5) * 1.5 else 0.0
+        val hihat = if (beatPosition % 0.25 < 0.05) (Random.nextDouble() - 0.5) * 0.5 else 0.0
+        return (kick + snare + hihat).toFloat()
+    }
+    
+    private fun generatePopSynth(frequency: Double, time: Double): Float {
+        val osc1 = sin(2 * PI * frequency * time)
+        val osc2 = sin(2 * PI * frequency * 1.01 * time) // Slight detune
+        val envelope = exp(-time % 1.0 * 2.0)
+        return ((osc1 + osc2) * 0.5 * envelope).toFloat()
+    }
+    
+    private fun generate808Bass(frequency: Double, time: Double, beatTime: Double): Float {
+        val envelope = exp(-beatTime * 8.0)
+        val bass = sin(2 * PI * frequency * time) * envelope
+        return bass.toFloat()
     }
     
     // Advanced synthesis methods
@@ -633,4 +740,3 @@ class AdvancedAudioEngine(private val context: Context) {
         return intToByteArray(intBits)
     }
 }
-

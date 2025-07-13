@@ -66,16 +66,16 @@ class GeneratorViewModel : ViewModel() {
     
     fun loadInstruments() {
         val instrumentList = listOf(
-            Instrument("1", "Piano", "Keyboard", false),
-            Instrument("2", "Guitar", "String", false),
-            Instrument("3", "Violin", "String", false),
-            Instrument("4", "Drums", "Percussion", false),
-            Instrument("5", "Bass", "String", false),
-            Instrument("6", "Flute", "Wind", false),
-            Instrument("7", "Saxophone", "Wind", false),
-            Instrument("8", "Synthesizer", "Electronic", false),
-            Instrument("9", "Trumpet", "Brass", false),
-            Instrument("10", "Cello", "String", false)
+            Instrument("1", "Piano", "Keyboard", "🎹"),
+            Instrument("2", "Guitar", "String", "🎸"),
+            Instrument("3", "Violin", "String", "🎻"),
+            Instrument("4", "Drums", "Percussion", "🥁"),
+            Instrument("5", "Bass", "String", "🎸"),
+            Instrument("6", "Flute", "Wind", "🎵"),
+            Instrument("7", "Saxophone", "Wind", "🎷"),
+            Instrument("8", "Synthesizer", "Electronic", "🎹"),
+            Instrument("9", "Trumpet", "Brass", "🎺"),
+            Instrument("10", "Cello", "String", "🎻")
         )
         _instruments.value = instrumentList
     }
@@ -167,4 +167,3 @@ class GeneratorViewModel : ViewModel() {
         }
     }
 }
-
