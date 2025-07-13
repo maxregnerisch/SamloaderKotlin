@@ -42,6 +42,11 @@
             android:exported="false"
             android:screenOrientation="portrait" />
             
+        <activity
+            android:name=".RemixActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+            
         <service
             android:name=".service.MusicGenerationService"
             android:enabled="true"
@@ -58,4 +63,3 @@
         </provider>
     </application>
 </manifest>
-

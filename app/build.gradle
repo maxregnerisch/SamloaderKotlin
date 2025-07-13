@@ -52,6 +52,16 @@ dependencies {
     // Audio processing
     implementation 'com.github.massoudss:waveformseekbar:5.0.2'
     implementation 'com.arthenica:mobile-ffmpeg-full:4.4.LTS'
+    implementation 'com.arthenica:ffmpeg-kit-full:6.0-2'
+    
+    // Advanced audio libraries
+    implementation 'org.jaudiotagger:jaudiotagger:2.2.5'
+    implementation 'com.github.wendykierp:JTransforms:3.1'
+    implementation 'org.apache.commons:commons-math3:3.6.1'
+    
+    // MIDI processing
+    implementation 'jp.kshoji:midi-driver:0.1.4'
+    implementation 'com.leff.midi:midi:1.1'
     
     // Networking
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -82,4 +92,3 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
-

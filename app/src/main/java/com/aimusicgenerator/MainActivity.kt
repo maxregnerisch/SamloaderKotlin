@@ -40,6 +40,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this@MainActivity, LibraryActivity::class.java))
             }
             
+            btnRemixStudio.setOnClickListener {
+                startActivity(Intent(this@MainActivity, RemixActivity::class.java))
+            }
+            
             btnSettings.setOnClickListener {
                 // TODO: Implement settings
             }
@@ -82,4 +86,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
