@@ -82,10 +82,23 @@
             app:iconGravity="textStart" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRemixStudio"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/accent"
+            android:text="AI Remix Studio"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_music_note"
+            app:iconGravity="textStart" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSettings"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:backgroundTint="@color/accent"
+            android:backgroundTint="@color/text_secondary"
             android:text="Settings"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -106,4 +119,3 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
