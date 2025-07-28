@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<versioninfo>
+	<url>https://fota-cloud-dn.ospserver.net/firmware/</url>
+	<firmware>
+		<model>SM-S906B</model>
+		<cc>EUX</cc>
+		<version>
+			<latest o="15">S906BXXSGFYG1/S906BOXMGFYG1/S906BXXSGFYG1</latest>
+			<upgrade>
+				<value rcount='7' fwsize='1938952880'>S906BXXU1AVCJ/S906BOXM1AVCJ/S906BXXU1AVD5</value>
+				<value rcount='7' fwsize='260796043'>S906BXXU2AVH9/S906BOXM2AVHB/S906BXXU2AVH9</value>
+				<value rcount='5' fwsize='285439519'>S906BXXU6CWH5/S906BOXM6CWH5/S906BXXU6CWH5</value>
+				<value rcount='5' fwsize='2872600859'>S906BXXU2BVJA/S906BOXM2BVJA/S906BXXU2BVJA</value>
+				<value rcount='5' fwsize='1948835859'>S906BXXS6CWF6/S906BOXM6CWF6/S906BXXS6CWF6</value>
+				<value rcount='3' fwsize='2704066741'>S906BXXSBEXFF/S906BOXMBEXFF/S906BXXSBEXFF</value>
+				<value rcount='3' fwsize='345161126'>S906BXXUDEXK5/S906BOXMDEXK5/S906BXXUDEXK5</value>
+				<value rcount='1' fwsize='314043987'>S906BXXSEFYE3/S906BOXMEFYE3/S906BXXSEFYE3</value>
+				<value rcount='5' fwsize='1997727186'>S906BXXS4CWD3/S906BOXM4CWCH/S906BXXU4CWCH</value>
+				<value rcount='5' fwsize='2376310615'>S906BXXU3CWBE/S906BOXM3CWBF/S906BXXU3CWBE</value>
+				<value rcount='3' fwsize='3716948169'>S906BXXU8DXD6/S906BOXM8DXD6/S906BXXU8DXD6</value>
+				<value rcount='2' fwsize='4427294650'>S906BXXSDEYB1/S906BOXMDEYB1/S906BXXSDEYB1</value>
+				<value rcount='7' fwsize='1092506304'>S906BXXU2AVF1/S906BOXM2AVF1/S906BXXU2AVF1</value>
+				<value rcount='7' fwsize='2395036690'>S906BXXU1AVA7/S906BOXM1AVA7/S906BXXU1AVA7</value>
+				<value rcount='5' fwsize='2861068894'>S906BXXU2BVKB/S906BOXM2BVKB/S906BXXU2BVKB</value>
+				<value rcount='7' fwsize='1868904133'>S906BXXS2AVDB/S906BOXM2AVDB/S906BXXS2AVDB</value>
+				<value rcount='3' fwsize='3727396663'>S906BXXS7DWL3/S906BOXM7DWL1/S906BXXS7DWL1</value>
+				<value rcount='1' fwsize='346095396'>S906BXXUDFYD9/S906BOXMDFYD9/S906BXXUDFYDB</value>
+				<value rcount='1' fwsize='293587297'>S906BXXSFFYF1/S906BOXMFFYF1/S906BXXSFFYF1</value>
+				<value rcount='7' fwsize='255008726'>S906BXXS2AVHD/S906BOXM2AVHB/S906BXXU2AVH9</value>
+				<value rcount='3' fwsize='3717291297'>S906BXXS8DXD2/S906BOXM8DXD2/S906BXXS8DXD2</value>
+				<value rcount='7' fwsize='2395156125'>S906BXXS1AVB3/S906BOXM1AVA7/S906BXXU1AVA7</value>
+				<value rcount='5' fwsize='2829923885'>S906BXXS2BWA2/S906BOXM2BVL1/S906BXXU2BVL1</value>
+				<value rcount='7' fwsize='234313648'>S906BXXS2AVHD/S906BOXM2AVHE/S906BXXU2AVHE</value>
+				<value rcount='3' fwsize='273008248'>S906BXXSDEYA1/S906BOXMDEYA1/S906BXXSDEYA1</value>
+				<value rcount='3' fwsize='3734749898'>S906BXXS7DWL1/S906BOXM7DWL1/S906BXXS7DWL1</value>
+				<value rcount='3' fwsize='2703921945'>S906BXXUAEXEA/S906BOXMAEXEA/S906BXXUAEXEA</value>
+				<value rcount='3' fwsize='2703143852'>S906BXXSBEXG8/S906BOXMBEXG8/S906BXXSBEXG8</value>
+				<value rcount='4' fwsize='3106097379'>S906BXXS6CWI1/S906BOXM6CWI1/S906BXXU6CWH5</value>
+				<value rcount='3' fwsize='3717790477'>S906BXXS7DXAC/S906BOXM7DXA6/S906BXXU7DXA6</value>
+				<value rcount='3' fwsize='3721382375'>S906BXXU7DXA6/S906BOXM7DXA6/S906BXXU7DXA6</value>
+				<value rcount='5' fwsize='2830278368'>S906BXXU2BVL1/S906BOXM2BVL1/S906BXXU2BVL1</value>
+				<value rcount='3' fwsize='2707975466'>S906BXXU9EXE1/S906BOXM9EXE1/S906BXXU9EXE1</value>
+				<value rcount='5' fwsize='2389041150'>S906BXXU3CWAI/S906BOXM3CWAI/S906BXXU3CWB7</value>
+				<value rcount='3' fwsize='2707922842'>S906BXXSAEXE3/S906BOXMAEXE3/S906BXXSAEXE3</value>
+				<value rcount='7' fwsize='1095862449'>S906BXXU2AVEH/S906BOXM2AVEH/S906BXXU2AVEH</value>
+				<value rcount='5' fwsize='1947651483'>S906BXXS6CWGA/S906BOXM6CWF6/S906BXXS6CWG6</value>
+				<value rcount='3' fwsize='529396921'>S906BXXUBEXH7/S906BOXMBEXH7/S906BXXUBEXH7</value>
+				<value rcount='3' fwsize='2701671247'>S906BXXSAEXEC/S906BOXMAEXEC/S906BXXSAEXEC</value>
+				<value rcount='7' fwsize='2262793045'>S906BXXU1AVBF/S906BOXM1AVBF/S906BXXU1AVBF</value>
+				<value rcount='7' fwsize='240100998'>S906BXXU2AVH9/S906BOXM2AVHE/S906BXXU2AVHE</value>
+				<value rcount='6' fwsize='2926320976'>S906BXXS2AVI7/S906BOXM2AVHE/S906BXXU2AVHE</value>
+				<value rcount='3' fwsize='312911113'>S906BXXSDEXL1/S906BOXMDEXL1/S906BXXSDEXL1</value>
+				<value rcount='5' fwsize='2389170098'>S906BXXU3CWAI/S906BOXM3CWAI/S906BXXU3CWAI</value>
+				<value rcount='5' fwsize='2000357260'>S906BXXU4CWCG/S906BOXM4CWCH/S906BXXU4CWCH</value>
+				<value rcount='7' fwsize='957260448'>S906BXXU2AVG6/S906BOXM2AVG6/S906BXXU2AVG6</value>
+				<value rcount='7' fwsize='1016555246'>S906BXXU2AVF5/S906BOXM2AVF5/S906BXXU2AVF9</value>
+				<value rcount='5' fwsize='2860973937'>S906BXXU2BVKB/S906BOXM2BVKC/S906BXXU2BVKC</value>
+				<value rcount='3' fwsize='3734826550'>S906BXXU6DWK4/S906BOXM6DWK4/S906BXXU6DWK4</value>
+				<value rcount='7' fwsize='2250480471'>S906BXXU1AVC6/S906BOXM1AVC6/S906BXXU1AVC6</value>
+				<value rcount='4' fwsize='1581882253'>S906BXXU6ZWIA/S906BOXM6ZWIA/S906BXXU6ZWIA</value>
+				<value rcount='3' fwsize='3717834533'>S906BXXS7DXBD/S906BOXM7DXBD/S906BXXS7DXBD</value>
+				<value rcount='3' fwsize='521571337'>S906BXXSCEXI4/S906BOXMCEXI4/S906BXXSCEXI4</value>
+				<value rcount='5' fwsize='1971260433'>S906BXXU5CWEA/S906BOXM5CWEA/S906BXXU5CWEB</value>
+				<value rcount='5' fwsize='270163391'>S906BXXS6CWH6/S906BOXM6CWH5/S906BXXU6CWH5</value>
+				<value rcount='3' fwsize='332608949'>S906BXXSDEXKA/S906BOXMDEXK5/S906BXXUDEXK5</value>
+				<value rcount='7' fwsize='1939054554'>S906BXXU1AVCJ/S906BOXM1AVCJ/S906BXXU1AVCJ</value>
+				<value rcount='7' fwsize='1868952969'>S906BXXU1AVDA/S906BOXM1AVDA/S906BXXU1AVDA</value>
+			</upgrade>
+		</version>
+	</firmware>
+	<polling>
+		<period>1</period>
+		<time>15</time>
+		<range>23</range>
+	</polling>
+	<ActiveDeviceInfo>
+		<CycleOfDeviceHeartbeat>14</CycleOfDeviceHeartbeat>
+		<ServiceURL>https://ifota-apis.samsungdm.com/device/fumo/deviceheartbeat</ServiceURL>
+	</ActiveDeviceInfo>
+	<WiFiConnectedPollingInfo>
+		<Cycle></Cycle>
+		<Activated>FALSE</Activated>
+	</WiFiConnectedPollingInfo>
+</versioninfo>
