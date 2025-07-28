@@ -1,145 +1,169 @@
-# AI Music Generator Android App
+# AI Music Generator
 
-A fully functional Android application that generates music using artificial intelligence algorithms. The app allows users to create unique musical compositions by selecting genres, instruments, tempo, and duration.
+A sophisticated Java-based AI music generator with vocal synthesis, multi-track arrangement, and professional audio export capabilities.
 
 ## Features
 
-### 🎵 AI Music Generation
-- **Advanced AI Engine**: Custom AI algorithms with genre-specific synthesis (better than Suno)
-- **Multiple Genres**: Electronic, Classical, Jazz, Rock, Ambient, Pop, Hip Hop, and Folk
-- **Instrument Selection**: Choose from 10+ instruments including Piano, Guitar, Violin, Drums, Bass, and more
-- **Customizable Parameters**: Adjust tempo (60-200 BPM) and duration (15-180 seconds)
+🎵 **AI-Powered Composition**
+- Intelligent chord progression generation based on music theory
+- Genre-specific melody creation (Pop, Rock, Electronic, Jazz, Classical, etc.)
+- Mood-based musical parameter selection
+- Complete song structure generation (intro, verse, chorus, bridge, outro)
 
-### 🎛️ AI Remix Studio
-- **MP3/MIDI Input**: Import and remix existing audio files (MP3, WAV, MIDI)
-- **Advanced Remixing**: 5 professional remix styles (Deep House, Trap, Dubstep, Ambient, Orchestral)
-- **Real-time Effects**: Bass boost, treble enhancement, reverb, delay, distortion
-- **Spectral Processing**: FFT-based audio manipulation for professional results
-- **Custom Presets**: Save and load your own remix configurations
+🎤 **Vocal Synthesis**
+- Text-to-speech with musical pitch modulation
+- Lyrics synchronization with musical rhythm
+- Realistic singing voice generation
 
-### 🎧 Advanced Audio Features
-- **Ultra-High Quality**: 96kHz sample rate, 32-bit float (surpasses Suno's 44.1kHz)
-- **Multiple Export Formats**: WAV (16/32-bit), MP3 (128/192/320/512 kbps)
-- **Real-time Playback**: Built-in media player with advanced controls
-- **Progress Tracking**: Visual progress bar with time display
-- **Professional Audio Processing**: Multi-band compression, stereo widening, harmonic enhancement
+🎛️ **Multi-Track Audio System**
+- Professional instrument synthesis (drums, bass, guitar, piano, synth, etc.)
+- Real-time audio mixing and effects processing
+- Individual track volume and mute controls
 
-### 📚 Music Library
-- **Save Generated Music**: Automatically save your creations to a personal library
-- **Library Management**: View, play, and delete saved compositions
-- **Detailed Information**: Track creation date, genre, tempo, and instruments used
-- **Search & Filter**: Easy navigation through your music collection
+🎚️ **Audio Effects & Processing**
+- Reverb, delay, compression, and EQ
+- Genre-specific instrument effects
+- Professional mastering chain
 
-### 🎨 Modern UI/UX
-- **Material Design 3**: Clean, modern interface following Google's design guidelines
-- **Intuitive Navigation**: Easy-to-use interface with clear visual feedback
-- **Responsive Design**: Optimized for various screen sizes
-- **Dark/Light Theme Support**: Adapts to system theme preferences
+💾 **Export Capabilities**
+- High-quality MP3 and WAV export
+- Professional audio encoding
+- Customizable export settings
+
+🖥️ **Modern JavaFX Interface**
+- Intuitive music generation controls
+- Real-time waveform visualization
+- Professional mixer interface
+- Progress tracking and status updates
 
 ## Technical Architecture
 
 ### Core Components
-- **MusicAIEngine**: Advanced audio synthesis engine that generates music using mathematical algorithms
-- **MusicGenerationService**: Background service for non-blocking music generation
-- **Room Database**: Local storage for generated music metadata
-- **MVVM Architecture**: Clean separation of concerns with ViewModels and LiveData
 
-### Audio Processing
-- **Real-time Synthesis**: Generates audio samples in real-time based on musical parameters
-- **Genre-Specific Algorithms**: Different synthesis approaches for each musical genre
-- **Harmonic Generation**: Creates rich, layered sounds with multiple harmonics
-- **WAV File Export**: High-quality audio file generation
+- **AudioEngine**: Central orchestrator for all audio operations
+- **CompositionEngine**: AI-powered music composition using music theory algorithms
+- **MidiHandler**: MIDI sequence creation and instrument management
+- **SynthesizerManager**: Advanced audio synthesis and instrument effects
+- **TrackManager**: Multi-track audio mixing and arrangement
+- **VocalSynthesizer**: Text-to-speech with pitch modulation for singing
+- **EffectsProcessor**: Professional audio effects and processing
+- **AudioExporter**: High-quality audio file export
 
-### Key Technologies
-- **Kotlin**: Modern Android development language
-- **Android Jetpack**: Lifecycle-aware components, Room database, ViewModels
-- **Material Design Components**: Modern UI components and theming
-- **Coroutines**: Asynchronous programming for smooth user experience
-- **MediaPlayer**: Native Android audio playback
-- **Custom Audio Synthesis**: Mathematical audio generation algorithms
+### Music Theory Implementation
+
+- **ChordProgression**: Generates realistic chord progressions based on genre and mood
+- **MelodyGenerator**: Creates melodies that follow musical scales and chord tones
+- **RhythmPattern**: Genre-specific rhythm and drum pattern generation
+- **GenreManager**: Manages instrument selections and characteristics per genre
+
+## Requirements
+
+- Java 17 or higher
+- JavaFX 19+
+- Maven 3.6+
+- Audio system with MIDI support
 
 ## Installation & Setup
 
-### Prerequisites
-- Android Studio Arctic Fox or later
-- Android SDK 24 (Android 7.0) or higher
-- Kotlin 1.9.20 or later
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd ai-music-generator
+   ```
 
-### Build Instructions
-1. Clone the repository
-2. Open the project in Android Studio
-3. Sync Gradle files
-4. Build and run on device or emulator
+2. **Build the project**
+   ```bash
+   mvn clean compile
+   ```
 
-### Permissions Required
-- `RECORD_AUDIO`: For potential future microphone input features
-- `WRITE_EXTERNAL_STORAGE`: To save generated music files
-- `READ_EXTERNAL_STORAGE`: To access saved music files
-- `INTERNET`: For potential cloud features (future enhancement)
+3. **Run the application**
+   ```bash
+   mvn javafx:run
+   ```
 
-## Usage Guide
+   Or build and run the JAR:
+   ```bash
+   mvn clean package
+   java -jar target/ai-music-generator-1.0.0.jar
+   ```
 
-### Generating Music
-1. **Launch the app** and tap "Generate Music"
-2. **Select a genre** from the horizontal list (Electronic, Classical, Jazz, etc.)
-3. **Choose instruments** by tapping on them (multiple selection supported)
-4. **Adjust tempo** using the slider (60-200 BPM)
-5. **Set duration** using the slider (15-180 seconds)
-6. **Tap "Generate Music"** and wait for the AI to create your composition
-7. **Play the generated music** using the built-in controls
-8. **Save to library** if you like the result
+## Usage
 
-### Managing Your Library
-1. **Access your library** from the main menu
-2. **Play any saved composition** by tapping the play button
-3. **View details** including creation date, genre, and instruments
-4. **Delete unwanted tracks** using the delete button
-5. **Share compositions** (feature coming soon)
+### Basic Song Generation
 
-## AI Music Generation Algorithm
+1. **Select Genre**: Choose from Pop, Rock, Electronic, Jazz, Classical, etc.
+2. **Choose Mood**: Select the emotional tone (Happy, Sad, Energetic, Calm, etc.)
+3. **Set Duration**: Specify song length (1-10 minutes)
+4. **Add Lyrics** (Optional): Enter lyrics for vocal synthesis
+5. **Generate**: Click "Generate Song" to create your music
 
-The app uses sophisticated algorithms to generate music:
+### Playback & Export
 
-### Genre-Specific Generation
-- **Electronic**: Synthesizer-based sounds with electronic beats and bass lines
-- **Classical**: Harmonic progressions with piano-like timbres and orchestral elements
-- **Jazz**: Swing rhythms with complex chord progressions and walking bass
-- **Rock**: Distorted guitar sounds with powerful drum patterns
-- **Ambient**: Evolving pad sounds with reverb and atmospheric textures
+- **Play/Stop**: Control playback with the transport controls
+- **Waveform**: View real-time waveform visualization with section markers
+- **Mixer**: Adjust individual track volumes and mute/solo tracks
+- **Export**: Save your generated music as MP3 or WAV files
 
-### Audio Synthesis Techniques
-- **Additive Synthesis**: Combining multiple sine waves for rich harmonics
-- **Subtractive Synthesis**: Filtering complex waveforms for specific timbres
-- **Envelope Shaping**: ADSR envelopes for realistic instrument attacks and decays
-- **Rhythm Generation**: Mathematical patterns for genre-appropriate beats
+### Advanced Features
 
-## Future Enhancements
+- **Real-time Progress**: Monitor generation progress with detailed status updates
+- **Song Structure**: View generated song sections and musical information
+- **Professional Quality**: High-quality 44.1kHz audio with professional effects
 
-### Planned Features
-- **Cloud Sync**: Backup and sync music across devices
-- **Social Sharing**: Share compositions with friends and community
-- **Advanced AI Models**: Integration with more sophisticated AI music models
-- **MIDI Export**: Export compositions as MIDI files
-- **Collaboration**: Real-time collaborative music creation
-- **Custom Instruments**: User-defined instrument creation
-- **Music Theory Integration**: Chord progression and scale-based generation
+## Architecture Details
 
-### Technical Improvements
-- **Machine Learning**: Neural network-based music generation
-- **Real-time Effects**: Audio effects and filters
-- **Multi-track Generation**: Separate tracks for different instruments
-- **Advanced Audio Formats**: Support for MP3, FLAC, and other formats
+### Audio Processing Pipeline
+
+1. **Composition**: AI generates chord progressions, melodies, and song structure
+2. **Arrangement**: Selects appropriate instruments based on genre
+3. **Synthesis**: Converts musical data to audio using MIDI synthesis
+4. **Vocals**: Processes lyrics into singing voice (if provided)
+5. **Effects**: Applies reverb, compression, EQ, and mastering
+6. **Export**: Encodes final audio to MP3/WAV format
+
+### Music Theory Engine
+
+The composition engine uses advanced music theory algorithms:
+
+- **Scale-based harmony**: Generates chords that fit the selected key and mode
+- **Voice leading**: Ensures smooth transitions between chords
+- **Melodic contour**: Creates memorable melodies that follow musical principles
+- **Rhythmic variation**: Generates appropriate rhythm patterns for each genre
+- **Song form**: Structures complete songs with proper sections and transitions
+
+## Development
+
+### Project Structure
+
+```
+src/main/java/com/musicgen/
+├── audio/              # Core audio engine and MIDI handling
+├── composition/        # AI composition algorithms
+├── theory/            # Music theory implementation
+├── tracks/            # Multi-track audio management
+├── vocals/            # Vocal synthesis system
+├── genres/            # Genre-specific characteristics
+├── effects/           # Audio effects processing
+├── ui/                # JavaFX user interface
+├── structure/         # Song structure representation
+└── export/            # Audio export functionality
+```
+
+### Key Technologies
+
+- **Java Sound API**: MIDI synthesis and audio playback
+- **JavaFX**: Modern user interface
+- **Maven**: Build and dependency management
+- **SLF4J + Logback**: Comprehensive logging
+- **Jackson**: JSON configuration handling
 
 ## Contributing
 
-We welcome contributions! Please feel free to submit pull requests, report bugs, or suggest new features.
-
-### Development Guidelines
-- Follow Kotlin coding conventions
-- Use MVVM architecture patterns
-- Write unit tests for new features
-- Follow Material Design guidelines
-- Document new APIs and features
+1. Fork the repository
+2. Create a feature branch
+3. Implement your changes
+4. Add tests for new functionality
+5. Submit a pull request
 
 ## License
 
@@ -147,11 +171,11 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- **Android Jetpack** for providing robust architectural components
-- **Material Design** for beautiful UI components
-- **Kotlin Coroutines** for smooth asynchronous operations
-- **Open Source Community** for inspiration and libraries
+- Built with Java Sound API for professional audio processing
+- Uses music theory principles for realistic composition
+- Inspired by modern AI music generation techniques
 
 ---
 
-**Note**: This is a demonstration app showcasing AI music generation capabilities. The AI algorithms are custom-built for educational and entertainment purposes. For production use, consider integrating with more advanced AI music generation services or models.
+**Note**: This is a sophisticated music generation system that demonstrates advanced Java audio programming, music theory implementation, and AI-driven composition techniques. While some features like advanced vocal synthesis may require additional development, the core architecture provides a solid foundation for professional music generation applications.
+
