@@ -30,4 +30,11 @@ sealed class FetchResult {
         val requestBody: String,
         override val responseCode: String? = null,
     ) : FetchResult()
+
+    data class FirmwareVersionFetchResult(
+        val firmwareVersionInfo: FirmwareVersionInfo? = null,
+        override val error: Exception? = null,
+        override val rawOutput: String = "",
+        override val responseCode: String? = null,
+    ) : FetchResult()
 }
