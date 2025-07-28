@@ -1,0 +1,15 @@
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/audio/AudioEngine.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/audio/MidiHandler.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/ui/MainController.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/composition/CompositionEngine.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/theory/RhythmPattern.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/theory/MelodyGenerator.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/structure/SongStructure.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/vocals/VocalSynthesizer.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/MusicGeneratorApp.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/export/AudioExporter.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/theory/ChordProgression.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/tracks/TrackManager.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/effects/EffectsProcessor.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/audio/SynthesizerManager.java
+/tmp/maxregnerisch/SamloaderKotlin/src/main/java/com/musicgen/genres/GenreManager.java

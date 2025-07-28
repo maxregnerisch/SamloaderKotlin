@@ -32,7 +32,7 @@ public class ChordProgression {
     };
     
     public ChordProgression() {
-        this.random = new ThreadLocalRandom.current();
+        this.random = ThreadLocalRandom.current();
         this.scaleChords = new HashMap<>();
         this.commonProgressions = new HashMap<>();
     }
@@ -371,4 +371,3 @@ public class ChordProgression {
         return (octave + 1) * 12 + noteValue;
     }
 }
-

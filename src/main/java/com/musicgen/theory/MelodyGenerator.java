@@ -18,7 +18,7 @@ public class MelodyGenerator {
     private Random random;
     
     public MelodyGenerator() {
-        this.random = new ThreadLocalRandom.current();
+        this.random = ThreadLocalRandom.current();
     }
     
     public void initialize() {
@@ -52,4 +52,3 @@ public class MelodyGenerator {
         return 60 + random.nextInt(24); // C4 to B5
     }
 }
-

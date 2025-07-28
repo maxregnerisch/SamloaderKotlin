@@ -35,7 +35,7 @@ public class CompositionEngine {
     };
     
     public CompositionEngine() {
-        this.random = new ThreadLocalRandom.current();
+        this.random = ThreadLocalRandom.current();
     }
     
     /**
@@ -201,7 +201,7 @@ public class CompositionEngine {
             case "jazz":
                 return random.nextBoolean() ? new int[]{4, 4} : new int[]{3, 4};
             case "progressive":
-                int[] complex = {new int[]{7, 8}, new int[]{5, 4}, new int[]{6, 8}};
+                int[][] complex = {new int[]{7, 8}, new int[]{5, 4}, new int[]{6, 8}};
                 return complex[random.nextInt(complex.length)];
             default:
                 return new int[]{4, 4};
@@ -389,4 +389,3 @@ public class CompositionEngine {
         return selected;
     }
 }
-
