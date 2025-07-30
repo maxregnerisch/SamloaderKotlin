@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">AWO - We Help People</string>
+    <string name="welcome_title">Willkommen bei AWO</string>
+    <string name="welcome_subtitle">Arbeiterwohlfahrt - Wir helfen Menschen</string>
+    <string name="start_game">Spiel starten</string>
+    <string name="about">Über uns</string>
+    <string name="help_people">Menschen helfen</string>
+    <string name="score">Punkte: %d</string>
+    <string name="level">Level: %d</string>
+    <string name="game_over">Spiel beendet!</string>
+    <string name="restart">Neu starten</string>
+    <string name="back_to_menu">Zurück zum Menü</string>
+    <string name="about_text">Die Arbeiterwohlfahrt (AWO) ist einer der sechs Spitzenverbände der Freien Wohlfahrtspflege in Deutschland. Wir setzen uns für soziale Gerechtigkeit und Solidarität ein.</string>
+    <string name="help_mission">Unsere Mission: Menschen in schwierigen Lebenssituationen zu unterstützen und ihnen zu helfen.</string>
+    <string name="tap_to_help">Tippe, um zu helfen!</string>
+    <string name="people_helped">Menschen geholfen: %d</string>
+</resources>
+
